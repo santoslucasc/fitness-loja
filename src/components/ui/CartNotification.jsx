@@ -55,7 +55,7 @@ export default function CartNotification({ item, onClose }) {
             {item.images && item.images[0] && (
                 <div className="mt-3 flex items-center gap-3 pt-3 border-t border-slate-800">
                     <img
-                        src={item.images[0]}
+                        src={`${import.meta.env.BASE_URL}${item.images[0].replace(/^\//, '')}`}
                         alt={item.name}
                         className="w-12 h-12 object-contain rounded"
                     />
