@@ -1,6 +1,7 @@
 {
   "name": "fitness-ecommerce",
   "private": true,
+  "homepage": "https://santoslucasc.github.io/fitness-loja",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
