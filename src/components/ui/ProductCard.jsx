@@ -14,7 +14,7 @@ export default function ProductCard({ product }) {
       {/* Área da Imagem */}
       <div className="aspect-[4/5] bg-slate-900 relative overflow-hidden flex items-center justify-center p-4">
         <img
-          src={product.images[0]}
+          src={`${import.meta.env.BASE_URL}${product.images[0].replace(/^\//, '')}`}
           alt={product.name}
           className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl"
         />
