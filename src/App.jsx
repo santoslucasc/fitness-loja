@@ -10,6 +10,7 @@ import Layout from './components/layout/Layout';
 import Home from './pages/store/Home';
 import ProductDetail from './pages/store/ProductDetail';
 import Checkout from './pages/store/Checkout';
+import CategoryPage from './pages/store/CategoryPage';
 
 // ==========================================
 // IMPORTAÇÕES DO ADMINISTRADOR (PAINEL)
@@ -41,6 +42,7 @@ export default function App() {
                 </Layout>
               }
             />
+            <Route path="/categoria/:nome" element={<CategoryPage />} />
             <Route
               path="/produto/:id"
               element={

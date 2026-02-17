@@ -1,26 +1,39 @@
 import { Link } from 'react-router-dom';
 import { Search, User, ShoppingBag, Menu } from 'lucide-react';
 import { useCart } from '../../contexts/CartContext';
+import CategoryMenu from '../ui/CategoryMenu'; // [1] Importar o novo menu
 
-export default function Navbar({ onOpenCart, searchQuery, setSearchQuery }) {
+// [2] Adicionar onOpenMobileMenu nas props recebidas
+export default function Navbar({ onOpenCart, onOpenMobileMenu, searchQuery, setSearchQuery }) {
   const { cartCount } = useCart();
 
   return (
     <nav className="bg-surface/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between gap-4">
 
-        {/* Esquerda: Logo e Menu Mobile */}
-        <div className="flex items-center gap-4">
-          <button className="md:hidden text-text-secondary hover:text-white">
+        {/* Esquerda: Logo, Menu Mobile e Categorias */}
+        <div className="flex items-center gap-6"> {/* Aumentei o gap para 6 para espaçar melhor */}
+
+          {/* Botão Menu Mobile */}
+          <button
+            onClick={onOpenMobileMenu} // [3] Adicionar a ação de clique aqui
+            className="md:hidden text-text-secondary hover:text-white transition-colors"
+          >
             <Menu size={24} />
           </button>
-          <Link to="/" className="relative group">
+
+          {/* Logo */}
+          <Link to="/" className="relative group shrink-0">
             <div className="absolute inset-0 bg-gradient-to-r from-brand-neon/20 to-emerald-400/20 blur-xl group-hover:blur-2xl transition-all"></div>
             <div className="relative font-extrabold text-2xl tracking-tighter text-white px-3 py-1.5 bg-slate-900/50 backdrop-blur-sm rounded-lg border border-slate-700/50 shadow-[0_0_20px_rgba(34,197,94,0.3)] group-hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all">
               <span className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">FIT</span>
               <span className="text-brand-neon drop-shadow-[0_0_8px_rgba(34,197,94,0.8)] stroke-text">PRO</span>
             </div>
           </Link>
+
+          {/* [4] Menu de Categorias (Desktop) */}
+          {/* Ele já tem "hidden md:block" internamente, mas aqui garante o posicionamento */}
+          <CategoryMenu />
         </div>
 
         {/* Centro: Barra de Busca (Desktop) */}
