@@ -11,6 +11,7 @@ import Home from './pages/store/Home';
 import ProductDetail from './pages/store/ProductDetail';
 import Checkout from './pages/store/Checkout';
 import CategoryPage from './pages/store/CategoryPage';
+import AllProductsPage from './pages/store/AllProductsPage';
 
 // ==========================================
 // IMPORTAÇÕES DO ADMINISTRADOR (PAINEL)
@@ -43,6 +44,7 @@ export default function App() {
               }
             />
             <Route path="/categoria/:nome" element={<CategoryPage />} />
+            <Route path="/produtos" element={<AllProductsPage />} />
             <Route
               path="/produto/:id"
               element={
